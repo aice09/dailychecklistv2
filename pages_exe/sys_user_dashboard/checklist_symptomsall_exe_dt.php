@@ -59,14 +59,32 @@ $sql =" SELECT * FROM dailysymptomchecklist
       }
 
 if(!empty($request['search']['value'])){
-    $sql.=" AND (empinfo_date Like '%".$request['search']['value']."%' ";
+    $sql.=" AND (empinfo_empid Like '%".$request['search']['value']."%' ";
+    $sql.=" OR empinfo_name Like '%".$request['search']['value']."%' ";
+    $sql.=" OR empinfo_department Like '%".$request['search']['value']."%' ";
+    $sql.=" OR empinfo_position Like '%".$request['search']['value']."%' ";
+    $sql.=" OR empinfo_date Like '%".$request['search']['value']."%' ";    
+    $sql.=" OR empinfo_fever Like '%".$request['search']['value']."%' ";
     $sql.=" OR empinfo_temperature Like '%".$request['search']['value']."%' ";
+    $sql.=" OR empinfo_df Like '%".$request['search']['value']."%'";
     $sql.=" OR empinfo_cough Like '%".$request['search']['value']."%' ";
-    $sql.=" OR empinfo_fever Like '%".$request['search']['value']."%'";
-    $sql.=" OR empinfo_df Like '%".$request['search']['value']."%' ";
     $sql.=" OR empinfo_diarrhea Like '%".$request['search']['value']."%' ";
     $sql.=" OR empinfo_chills Like '%".$request['search']['value']."%' ";
-    $sql.=" OR empinfo_cas Like '%".$request['search']['value']."%' )";
+    $sql.=" OR empinfo_cas Like '%".$request['search']['value']."%' ";
+    $sql.=" OR empinfo_headache Like '%".$request['search']['value']."%'";
+    $sql.=" OR empinfo_sorethroat Like '%".$request['search']['value']."%' ";
+    $sql.=" OR empinfo_bjp Like '%".$request['search']['value']."%' ";
+    $sql.=" OR empinfo_lots Like '%".$request['search']['value']."%' ";    
+    $sql.=" OR empinfo_rwn Like '%".$request['search']['value']."%'";
+    $sql.=" OR empinfo_dv Like '%".$request['search']['value']."%' ";
+    $sql.=" OR empinfo_ef Like '%".$request['search']['value']."%' ";
+    $sql.=" OR empinfo_anywhere Like '%".$request['search']['value']."%' ";
+    $sql.=" OR empinfo_where Like '%".$request['search']['value']."%' ";    
+    $sql.=" OR empinfo_dtcreated Like '%".$request['search']['value']."%' ";
+    $sql.=" OR empinfo_createdby Like '%".$request['search']['value']."%' ";
+    $sql.=" OR empinfo_dtupdated Like '%".$request['search']['value']."%' ";
+    $sql.=" OR empinfo_updatedby Like '%".$request['search']['value']."%' ";
+    $sql.=" OR empinfo_status Like '%".$request['search']['value']."%' )";
 }
 $query=mysqli_query($db,$sql);
 $totalData=mysqli_num_rows($query);

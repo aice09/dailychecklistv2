@@ -180,7 +180,11 @@ $(document).ready(function() {
 
 		dataTable.buttons().container()
 			.appendTo( '#example_wrapper .col-sm-6:eq(0)' );
+
+			
 	}
+
+	
 
 	$('#search').click(function(){
 		var start_date = $('#start_date').val();
