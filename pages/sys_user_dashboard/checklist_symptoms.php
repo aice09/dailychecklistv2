@@ -111,7 +111,7 @@
 							<div class="form-group">
 								<label for="">Date</label>
 								<div class="input-group date" id="datetimepicker4" data-target-input="nearest">
-									<input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker4" placeholder="Date" id="empinfo_date" name="empinfo_date" />
+									<input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker4" placeholder="Date" id="empinfo_date" name="empinfo_date" readonly="readonly" />
 									<span class="input-group-addon" data-target="#datetimepicker4" data-toggle="datetimepicker">
 										<span class="glyphicon glyphicon-calendar"></span>
 									</span>
@@ -242,9 +242,9 @@
       
 <script type="text/javascript">
 $(document).ready(function() {
-	$('#datetimepicker4').datetimepicker({
+	/* $('#datetimepicker4').datetimepicker({
 		format: 'L'
-	});
+	}); */
 
     //Reading
     var dataTable = $('#example').DataTable({        
@@ -272,6 +272,15 @@ $(document).ready(function() {
         $("#section_btn").attr('name', 'submit_btn');
         $("#section_btn").attr('data-id', '');
 
+		var today = new Date();
+		var dd = String(today.getDate()).padStart(2, '0');
+		var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+		var yyyy = today.getFullYear();
+
+		today = mm + '/' + dd + '/' + yyyy;
+		//document.write(today);
+
+		$("#empinfo_date").val(today);
         /* 
         $("#color").val('');
         $("#widthinch").val('');
@@ -519,7 +528,7 @@ $(document).ready(function() {
 
         $.ajax({
             type: 'POST',
-            url: 'pages_exe/flexocylinder_exe_crud.php',
+            url: 'pages_exe/sys_user_dashboard/checklist_symptoms_exe_crud.php',
             data: {
                 read_selected: action,
                 crud_id: id
@@ -527,17 +536,31 @@ $(document).ready(function() {
             success: function(data, status) {
                 //console.log(data);
                 var cruddata = JSON.parse(data);
-                $("#machid").val(cruddata.machid);
-                $("#machine").val(cruddata.machine);
-                $("#color").val(cruddata.color);
-                $("#widthinch").val(cruddata.widthinch);
-                $("#widthmm").val(cruddata.widthmm);
-                $("#cylindertype").val(cruddata.cylindertype);
-                $("#spec").val(cruddata.spec);
-                $("#qty").val(cruddata.qty);
-                $("#plate").val(cruddata.plate);
-                $("#dstape").val(cruddata.dstape);
-                $("#distortion").val(cruddata.distortion);
+                //add the values from the database into the textboxes
+				$('#update_id').val(cruddata.id);
+				$('#update_empid').val(cruddata.empid);
+				$('#update_name').val(cruddata.name);
+				$('#update_department').val(cruddata.department);
+				$('#update_position').val(cruddata.position);
+				$('#update_date').val(cruddata.date);
+				$('#update_temperature').val(cruddata.temperature);
+				$('#update_cough').val(cruddata.cough);
+				$('#update_fever').val(cruddata.fever);
+				$('#update_df').val(cruddata.df);
+				$('#update_diarrhea').val(cruddata.diarrhea);
+				$('#update_chills').val(cruddata.chills);
+				$('#update_cas').val(cruddata.cas);
+				$('#update_headache').val(cruddata.headache);
+				$('#update_sorethroat').val(cruddata.sorethroat);
+				$('#update_bjp').val(cruddata.bjp);
+				$('#update_lots').val(cruddata.lots);
+				$('#update_rwn').val(cruddata.rwn);
+				$('#update_dv').val(cruddata.dv);
+				$('#update_ef').val(cruddata.ef);
+				$('#update_anywhere').val(cruddata.anywhere);
+				$('#update_where').val(cruddata.where);
+
+
 
                 $("#section_btn").attr('name', 'update_btn');
                 $("#section_btn").attr('data-id', cruddata.machid);

@@ -95,8 +95,13 @@ while($row=mysqli_fetch_array($query)){
     $subdata[]=$row[24];
     $subdata[]=$row[25];
     $subdata[]=$row[26];   
-    $subdata[]='<!--<button type="button" class="btn btn-primary btn-sm" id="update" data-id="'.$row[0].'" >Edit</button>-->
-                <button type="button" class="btn btn-danger btn-sm" id="delete" data-id="'.$row[0].'" >Delete</button>';
+    //if date today is not equal to date created do not show edit and delete button
+    if($row[5] == date('m/d/Y')){
+        $subdata[]='<!--<button type="button" class="btn btn-primary btn-sm" id="update" data-id="'.$row[0].'" >Edit</button> -->
+        <button type="button" class="btn btn-danger btn-sm" id="delete" data-id="'.$row[0].'" >Delete</button>';
+    }else{
+        $subdata[]='';
+    }
     $data[]=$subdata;
 }
 

@@ -33,5 +33,4 @@ if ($hash_pass==$hash_password) {
 } else {
 	echo "There was a problem with your username and password";
 }
-
  ?>
