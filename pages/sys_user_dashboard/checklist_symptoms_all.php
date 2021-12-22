@@ -137,8 +137,9 @@ $(document).ready(function() {
 	function fetch_data(is_date_search, start_date='', end_date='')
  	{
 		var dataTable = $('#example').DataTable({ 
-			"dom": 'Bfrtip',
-			"lengthChange": false,
+			"dom": 'Blfrtip',
+			/* "lengthChange": false, */
+			/* "lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "All"]], */
 			"buttons": [
 				{
 					'extend':'print',
@@ -219,5 +220,8 @@ $(document).ready(function() {
 <style>
 	#filtertb tr td {
 		padding: 5px;
+	}
+	.dt-buttons .btn-group {
+		margin-bottom: 10px;
 	}
 </style>

@@ -43,6 +43,9 @@ if($_POST["is_date_search"] != "no")
 {
     $sql .= ' AND empinfo_date BETWEEN "'.$start_date.'" AND "'.$end_date.'"';
 }
+
+$sql .= 'ORDER BY empinfo_date DESC';
+
 $query=mysqli_query($db,$sql);
 
 $totalData=mysqli_num_rows($query);
