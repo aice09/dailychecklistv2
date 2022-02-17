@@ -42,7 +42,7 @@ while($row4 = mysqli_fetch_array($result4))
 ?>
 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 		<div class="row">
-        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
 		        <div class="panel panel-green">
 		            <div class="panel-heading">
 		                <div class="row">
@@ -64,7 +64,7 @@ while($row4 = mysqli_fetch_array($result4))
 		            </a>
 		        </div>
 		    </div>
-		    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+		    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
 		        <div class="panel panel-verdun-green">
 		            <div class="panel-heading">
 		                <div class="row">
@@ -86,7 +86,7 @@ while($row4 = mysqli_fetch_array($result4))
 		            </a>
 		        </div>
 		    </div>
-		    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+		    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
 		        <div class="panel panel-green-vogue">
 		            <div class="panel-heading">
 		                <div class="row">
@@ -108,7 +108,7 @@ while($row4 = mysqli_fetch_array($result4))
 		            </a>
 		        </div>
 		    </div>
-		    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+		    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
 		        <div class="panel panel-loulou">
 		            <div class="panel-heading">
 		                <div class="row">
